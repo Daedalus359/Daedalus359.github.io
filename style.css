@@ -1,0 +1,111 @@
+#container ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 50;
+  background-color: rgba(255,255,255,0.7);
+}
+
+li {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+#container li:hover {
+  background: #f4f4f4;
+}
+
+.sortable-drag {
+  opacity: 0.5;
+  background-color: #f4f4f4;
+}
+
+.cube {
+  position: relative;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(-15deg);
+  animation: spin 15s infinite linear;
+}
+
+.side {
+  position: absolute;
+  padding: 0px;
+  width: 190px;
+  height: 190px;
+  background-color: rgba(255, 0, 255, 0.8);
+  border: 1px solid #ccc;
+  font-size: 24px;
+  text-align: center;
+  line-height: 160px;
+  transition: transform 0.5s ease-in-out;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: translateZ(100px);
+  background-color: rgba(255, 100, 100, 0.99);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(100px);
+  background-color: rgba(0, 255, 0, 0.99); 
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+  background-color: rgba(0, 255, 0, 0.3); 
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+  background-color: rgba(0, 255, 0, 0.3); 
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+  background-color: rgba(50, 50, 50, 0.7); 
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+  background-color: rgba(50, 50, 50, 0.7); 
+}
+
+@keyframes spin {
+
+  10% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  20% {
+    transform: rotateY(90deg);
+  }
+  28% {
+    transform: rotateY(90deg) rotateZ(90deg);
+  }
+  30% {
+    transform: rotateY(90deg) rotateZ(90deg) rotateY(270deg);
+  }
+  33% {
+    transform: rotateY(90deg) rotateZ(90deg) rotateY(270deg);
+  }
+  40% {
+    transform: rotateY(90deg) rotateZ(90deg) rotateX(90deg);
+  }
+  50% {
+    transform: rotateY(90deg) rotateZ(90deg) rotateX(90deg) rotateY(90deg);
+  }
+  90% {
+    transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg);
+  }
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}

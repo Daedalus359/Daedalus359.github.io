@@ -1,0 +1,65 @@
+<head>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
+   <link rel="stylesheet" href="style.css">
+   <title>Background Color Picker</title>
+   <style>
+      body {
+         background-color: rgba(0,0,0,1);
+      }
+      div {
+         margin: 10px;
+      }
+      input[type=text] {
+         width: 50px;
+      }
+   </style>
+</head>
+
+<div id="container">
+  <ul id="sortable-list">
+    <li>r <input id="red" type="text" value="100"></li>
+    <li>g <input id="green" type="text" value="55"></li>
+    <li>b <input id="blue" type="text" value="200"></li>
+    <li>a <input id="alpha" type="text" value="1"></li>
+  </ul>
+</div>
+
+<div class="cube center">
+  <div class="side front">xHey!</div>
+  <div class="side back">xI'm gonna hurl!</div>
+  <div class="side right">z ̿ ̿ ̿'̿'\̵͇̿̿\з=(•_•)=ε/̵͇̿̿/'̿'̿ ̿ </div>
+  <div class="side left">zWheee!</div>
+  <div class="side top">yTop</div>
+  <div class="side bottom">y:)</div>
+</div>
+
+
+<script>
+   Sortable.create(document.getElementById('sortable-list'), {
+      dragClass: 'sortable-drag',
+      animation: 150
+   });
+</script>
+
+<script>
+   const redInput = document.getElementById("red");
+   const greenInput = document.getElementById("green");
+   const blueInput = document.getElementById("blue");
+   const alphaInput = document.getElementById("alpha");
+
+   function updateColor() {
+      const red = parseInt(redInput.value);
+      const green = parseInt(greenInput.value);
+      const blue = parseInt(blueInput.value);
+      const alpha = parseFloat(alphaInput.value);
+
+      document.body.style.backgroundColor = `rgba(${red},${green},${blue},${alpha})`;
+   }
+
+   redInput.addEventListener("input", updateColor);
+   greenInput.addEventListener("input", updateColor);
+   blueInput.addEventListener("input", updateColor);
+   alphaInput.addEventListener("input", updateColor);
+
+   updateColor();
+</script>
